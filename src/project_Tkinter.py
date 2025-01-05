@@ -103,6 +103,8 @@ def selectdata():
      for row in retrive_data:
           print(row)
 
+     return retrive_data
+
 selectbtn = ttk.Button(win,text="Select data",width=50,command=selectdata)
 selectbtn.grid(row=12,column=0,columnspan=4,pady=20)
 
