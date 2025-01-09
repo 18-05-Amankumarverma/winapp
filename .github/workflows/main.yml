@@ -32,6 +32,6 @@ jobs:
     # Test code
     - name: Testing code
       run: |
-        pytest test.py
+        pytest ../../test/test.py
 
     
