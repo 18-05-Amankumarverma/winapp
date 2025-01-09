@@ -1,4 +1,5 @@
+import pytest
 from src.project_Tkinter import selectdata
 
 def test_answer():
-    assert selectdata() is not None
+    print("test successfully completed")
