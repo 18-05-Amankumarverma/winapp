@@ -71,6 +71,8 @@ hobbies_combobox.current(0)
 conditions = tk.BooleanVar()
 ttk.Checkbutton(win,text='Accept our Terms and conditions',variable=conditions).grid(row=9,column=0,sticky=tk.W,padx=15,pady=5)
 
+connection = sqlite3.connect('sql.db')
+cursor = connection.cursor()
 
 def collect_user_data():
      firstname = first_name.get()
@@ -83,18 +85,15 @@ def collect_user_data():
      hobbiesvalue = hobbies.get()
      conditionsvalue = conditions.get()
 
-     connection = sqlite3.connect('sql.db')
-     coursor = connection.cursor()
      query = 'INSERT INTO user VALUES (?,?,?,?);'
-     coursor.execute(query,(firstname,lastname,emailid,phonenumber))
+     cursor.execute(query,(firstname,lastname,emailid,phonenumber))
      connection.commit()
 
 submit_btn = ttk.Button(win,text='Submit',width=50,command=collect_user_data)
 submit_btn.grid(row=10,column=0,columnspan=4,pady=20)
 
 def selectdata():
-     connection = sqlite3.connect('sql.db')
-     cursor = connection.cursor()
+     
      query = """
                SELECT * FROM user;
              """
